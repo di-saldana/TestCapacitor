@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Platform } from '@ionic/angular'; 
+import { App } from '@capacitor/app'; 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +10,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private platform: Platform) {    
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      App.exitApp();    
+    });  
+  }
 
 }
