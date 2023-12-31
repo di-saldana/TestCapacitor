@@ -18,9 +18,9 @@
       <h2><b>Capacitor info</b></h2>
 
       <ul>
-        <li>Platform name: ---</li>
-        <li>Native platform: ---</li>
-        <li>Camera available: ---</li>
+        <li><b>Platform name:</b> {{platformName}}</li>
+        <li><b>Native platform:</b> {{nativePlatform}}</li>
+        <li><b>Camera available:</b> {{isCameraAvailable ? 'Yes' : 'No'}}</li>
       </ul>
     </ion-card-content>
   </ion-card>
@@ -28,14 +28,14 @@
   <ion-card>
     <ion-card-content>
       <h2><b>Device info</b></h2>
-
+  
       <ul>
-        <li>Name: ---</li>
-        <li>Operating System: ---</li>
-        <li>OS version: ---</li>
-        <li>Manufacturer: ---</li>
-        <li>Is virtual?: ---</li>
-        <li>UUID: ---</li>
+        <li><b>Name:</b> {{deviceInfo.name}}</li>
+        <li><b>Operating System:</b> {{deviceInfo.operatingSystem}}</li>
+        <li><b>OS version:</b> {{deviceInfo.osVersion}}</li>
+        <li><b>Manufacturer:</b> {{deviceInfo.manufacturer}}</li>
+        <li><b>Is virtual?</b> {{deviceInfo.isVirtual ? 'Yes' : 'No'}}</li>
+        <li><b>UUID:</b> {{deviceInfo.uuid}}</li>
       </ul>
     </ion-card-content>
   </ion-card>
@@ -43,11 +43,43 @@
   <ion-card>
     <ion-card-content>
       <h2><b>Battery info</b></h2>
-
+  
       <ul>
-        <li>Battery level: ---</li>
-        <li>Is charging?: ---</li>
+        <li><b>Battery level:</b> {{batteryInfo.level}}%</li>
+        <li><b>Is charging?</b> {{batteryInfo.isCharging ? 'Yes' : 'No'}}</li>
       </ul>
     </ion-card-content>
   </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h2><b>Network info</b></h2>
+  
+      <ul>
+        <li><b>Is connected?</b> {{networkInfo.connected ? 'Yes' : 'No'}}</li>
+        <li><b>Connection type:</b> {{networkInfo.connectionType}}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h2><b>Events log</b></h2>
+  
+      <ul>
+        <li *ngFor="let event of eventsLog">{{event}}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h2><b>GPS info</b></h2>
+  
+      <ul>
+        <li><b>Latitude:</b> {{gpsInfo.latitude}}</li>
+        <li><b>Longitude:</b> {{gpsInfo.longitude}}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>  
 </ion-content>
